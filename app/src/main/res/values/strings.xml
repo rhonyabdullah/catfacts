@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CatFacts</string>
+    <string name="main_get_fact">Get Fact</string>
+    <string name="main_press_the_button">Press the button!</string>
 </resources>

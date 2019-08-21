@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface CatService {
 
     @GET("facts")
-    fun getFacts(): Call<List<CatFact>>
+    fun getFacts(): Call<Response<List<CatFact>>>
 }
