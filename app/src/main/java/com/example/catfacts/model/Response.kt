@@ -1,4 +1,4 @@
-package com.example.catfacts
+package com.example.catfacts.model
 
 import com.squareup.moshi.JsonClass
 
