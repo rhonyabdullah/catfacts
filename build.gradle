@@ -36,4 +36,8 @@ ext {
     okhttpVersion = '3.14.2'
     retrofitVersion = '2.6.0'
     moshiVersion = '1.8.0'
+    roxieVersion = '0.4.0'
+    rxJavaVersion = '2.2.9'
+    rxAndroidVersion = '2.1.1'
+    rxKotlinVersion = '2.3.0'
 }
