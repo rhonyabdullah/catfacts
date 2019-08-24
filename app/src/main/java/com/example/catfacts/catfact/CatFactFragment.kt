@@ -41,7 +41,6 @@ class CatFactFragment : Fragment() {
         }
     }
 
-
     private fun renderState(state: CatFactState) {
         with(state) {
             if (fact.isNotEmpty()) {

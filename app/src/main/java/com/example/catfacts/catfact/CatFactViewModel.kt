@@ -44,15 +44,12 @@ class CatFactViewModel(
                     .subscribeOn(Schedulers.io())
                     .toObservable()
                     .map<CatFactChange> { CatFactChange.Fact(it) }
-                    .defaultIfEmpty(CatFactChange.Fact(""))
                     .onErrorReturn { CatFactChange.Error(it) }
                     .startWith(CatFactChange.Loading)
             }
 
         disposables += getFactChange
             .scan(initialState, reducer)
-            .filter { !it.activity }
-            .distinctUntilChanged()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(state::setValue)
     }

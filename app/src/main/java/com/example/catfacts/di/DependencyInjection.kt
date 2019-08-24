@@ -14,7 +14,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 class DependencyInjection {
 
-    lateinit var catFactViewModel: CatFactViewModel
+    var catFactViewModel: CatFactViewModel
 
     init {
         val apiBaseUrl = "https://cat-fact.herokuapp.com"

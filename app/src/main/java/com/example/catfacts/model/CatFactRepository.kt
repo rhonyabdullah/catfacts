@@ -10,7 +10,7 @@ class CatFactRepository(private val catFactService: CatService) {
         return catFactService.getFacts()
             .map { response ->
                 val randomInt = Random.nextInt(0, response.all.size)
-                response.all.get(randomInt).text
+                response.all[randomInt].text
             }
     }
 }
