@@ -3,6 +3,10 @@ package com.example.catfacts.catfact
 import com.example.catfacts.model.CatFactRepository
 import io.reactivex.Single
 
-class GetCatFactUseCase(private val catFactRepository: CatFactRepository) {
-    fun getFact(): Single<String> = catFactRepository.getCatFact()
+interface CatFactUseCase {
+    fun getFact(): Single<String>
+}
+
+class CatFactUseCaseImpl(private val catFactRepository: CatFactRepository) : CatFactUseCase {
+    override fun getFact(): Single<String> = catFactRepository.getCatFact()
 }

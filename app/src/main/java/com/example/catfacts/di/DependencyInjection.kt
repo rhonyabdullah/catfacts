@@ -3,7 +3,7 @@ package com.example.catfacts.di
 import com.example.catfacts.model.api.CatService
 import com.example.catfacts.catfact.CatFactState
 import com.example.catfacts.catfact.CatFactViewModel
-import com.example.catfacts.catfact.GetCatFactUseCase
+import com.example.catfacts.catfact.CatFactUseCaseImpl
 import com.example.catfacts.model.CatFactRepository
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
@@ -38,7 +38,7 @@ class DependencyInjection {
 
         val catFactRepository = CatFactRepository(catService)
 
-        val getCatFactUseCase = GetCatFactUseCase(catFactRepository)
+        val getCatFactUseCase = CatFactUseCaseImpl(catFactRepository)
 
         catFactViewModel = CatFactViewModel(CatFactState(activity = false), getCatFactUseCase)
     }

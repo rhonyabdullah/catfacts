@@ -40,4 +40,6 @@ ext {
     rxJavaVersion = '2.2.9'
     rxAndroidVersion = '2.1.1'
     rxKotlinVersion = '2.3.0'
+    mockitoKotlinVersion = '1.6.0'
+    coreTestingVersion = '2.0.1'
 }

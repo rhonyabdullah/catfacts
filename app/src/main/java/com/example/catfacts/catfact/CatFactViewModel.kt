@@ -9,7 +9,7 @@ import io.reactivex.schedulers.Schedulers
 
 class CatFactViewModel(
     initialState: CatFactState?,
-    private val getCatFactUseCase: GetCatFactUseCase
+    private val catFactUseCase: CatFactUseCase
 ) : BaseViewModel<CatFactAction, CatFactState>() {
 
     override val initialState = initialState ?: CatFactState(activity = false)
@@ -40,7 +40,7 @@ class CatFactViewModel(
         val getFactChange = actions
             .ofType<CatFactAction.GetFactButtonClicked>()
             .switchMap {
-                getCatFactUseCase.getFact()
+                catFactUseCase.getFact()
                     .subscribeOn(Schedulers.io())
                     .toObservable()
                     .map<CatFactChange> { CatFactChange.Fact(it) }
