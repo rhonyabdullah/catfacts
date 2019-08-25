@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.example.catfacts.Application
 import com.example.catfacts.R
+import com.example.catfacts.di
+import com.ww.roxie.BaseViewModel
 import kotlinx.android.synthetic.main.cat_fact_fragment.*
 
 class CatFactFragment : Fragment() {
@@ -17,7 +18,7 @@ class CatFactFragment : Fragment() {
         fun newInstance() = CatFactFragment()
     }
 
-    private lateinit var viewModel: CatFactViewModel
+    private lateinit var viewModel: BaseViewModel<CatFactAction, CatFactState>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,10 +31,12 @@ class CatFactFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = (requireActivity().application as Application).di.catFactViewModel
+        viewModel = this.context!!.di.catFactViewModel
 
         viewModel.observableState.observe(this, Observer { state ->
-            state?.let { renderState(state) }
+            state?.let {
+                renderState(it)
+            }
         })
 
         getFactButton.setOnClickListener {
@@ -47,6 +50,7 @@ class CatFactFragment : Fragment() {
                 catFactView.text = fact
             }
             progressBar.isVisible = activity
+            getFactButton.isEnabled = !activity
             errorView.isVisible = displayError
         }
     }

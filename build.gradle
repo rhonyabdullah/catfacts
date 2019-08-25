@@ -42,4 +42,5 @@ ext {
     rxKotlinVersion = '2.3.0'
     mockitoKotlinVersion = '1.6.0'
     coreTestingVersion = '2.0.1'
+    testVersion = '1.2.0'
 }

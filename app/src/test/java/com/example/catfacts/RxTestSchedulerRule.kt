@@ -30,7 +30,7 @@ import org.junit.runners.model.Statement
 class RxTestSchedulerRule(private val testScheduler: TestScheduler = TestScheduler()) : Scheduler(),
     TestRule {
     override fun apply(base: Statement, description: Description?): Statement {
-        RxJavaPlugins.setIoSchedulerHandler { _ -> testScheduler }
+        RxJavaPlugins.setIoSchedulerHandler { testScheduler }
         RxJavaPlugins.setComputationSchedulerHandler { testScheduler }
         RxJavaPlugins.setNewThreadSchedulerHandler { testScheduler }
         RxJavaPlugins.setSingleSchedulerHandler { testScheduler }

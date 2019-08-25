@@ -1,13 +1,15 @@
 package com.example.catfacts
 
 import android.app.Application
+import android.content.Context
 import com.example.catfacts.di.DependencyInjection
+import com.example.catfacts.di.DependencyInjectionImpl
 import com.ww.roxie.Roxie
 
-class Application : Application() {
+open class Application : Application() {
 
-    val di by lazy {
-        DependencyInjection()
+    open val di: DependencyInjection by lazy {
+        DependencyInjectionImpl()
     }
 
     override fun onCreate() {
@@ -15,3 +17,6 @@ class Application : Application() {
         Roxie.enableLogging()
     }
 }
+
+val Context.di: DependencyInjection
+    get() = (this.applicationContext as com.example.catfacts.Application).di

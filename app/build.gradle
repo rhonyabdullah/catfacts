@@ -15,9 +15,21 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'com.example.catfacts.AndroidTestRunner'
+    }
+    testBuildType 'instrumented'
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        animationsDisabled true
     }
     buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+        }
+        instrumented {
+            initWith debug
+            applicationIdSuffix '.instrumented'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -56,4 +68,6 @@ dependencies {
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     testImplementation "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
     testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+
+    androidTestImplementation "androidx.test:rules:$testVersion"
 }
