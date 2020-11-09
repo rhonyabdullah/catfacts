@@ -10,6 +10,7 @@ import com.example.catfacts.AndroidTestActivity
 import com.example.catfacts.AndroidTestViewModel
 import com.example.catfacts.R
 import com.example.catfacts.TestDependencyInjection
+import okhttp3.mockwebserver.MockWebServer
 import org.hamcrest.CoreMatchers.not
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -26,6 +27,8 @@ class CatFactFragmentTest {
 
     private val resources: Resources
         get() = activityRule.activity.resources
+
+    private val mockwebserver = MockWebServer()
 
     @Before
     fun before() {

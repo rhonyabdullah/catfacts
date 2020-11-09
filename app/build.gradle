@@ -19,7 +19,6 @@ android {
     }
     testBuildType 'instrumented'
     testOptions {
-        execution 'ANDROIDX_TEST_ORCHESTRATOR'
         animationsDisabled true
     }
     buildTypes {
@@ -70,4 +69,5 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
 
     androidTestImplementation "androidx.test:rules:$testVersion"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockwebserverVersion"
 }
